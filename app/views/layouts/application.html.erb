@@ -4,15 +4,17 @@
     <title>TwoFactorRailsProject</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= link_to('Log_out', destroy_user_session_path, method: :delete) if user_signed_in? %>
-    
+    <% if user_signed_in? %>
+      <%= link_to 'Posts', posts_path %> |
+      <%= link_to 'Edit your profile', edit_user_registration_path %> |
+      <%= link_to 'Log_out', destroy_user_session_path, method: :delete %>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>
