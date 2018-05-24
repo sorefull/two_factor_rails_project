@@ -5,6 +5,7 @@
 Devise.setup do |config|
   config.warden do |manager|
     manager.default_strategies(:scope => :user).unshift :two_factor_authenticatable
+    manager.default_strategies(:scope => :user).unshift :two_factor_backupable
   end
 
   # The secret key used by Devise. Devise uses this key to generate
@@ -13,7 +14,7 @@ Devise.setup do |config|
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
   # config.secret_key = '8c5cfd9c1949d922837d8bf01236142718cb00d5f2db58f4592215ee09db33c64c760b88e458062fe899ab2f334277d5ea33d1735765783fb593ed90c01aab8e'
-  
+
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
   # config.parent_controller = 'DeviseController'
